@@ -63,16 +63,24 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                height: 120,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Colors.deepOrange,Colors.blue],
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topCenter
-                  ),
-                ),
-              )
+              // Container(
+              //   height: 120,
+              //   decoration: const BoxDecoration(
+              //     gradient: LinearGradient(
+              //         colors: [Colors.deepOrange,Colors.blue],
+              //         begin: Alignment.bottomLeft,
+              //         end: Alignment.topCenter
+              //     ),
+              //   ),
+              // ),
+              Container(height: 80,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.red,Colors.white],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomLeft
+                )
+              ),)
             ],
           ),
         ),
