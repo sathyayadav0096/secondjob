@@ -23,27 +23,39 @@ class _ApiClassState extends State<ApiClass> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                itemCount: 3,
+                itemCount: listName.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       // height: 120,
                       color: Colors.green,
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Title',
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                              'User ID: ${listName[index].userId}',
+                              style: const TextStyle(
+                                  fontSize: 15),
+                              maxLines: 2,
                             ),
-                            Text('stage two'),
-                            Text('stage three'),
-                            Text('stage four')
+                            const Divider(thickness: 3),
+                            Text('ID: ${listName[index].id}'),
+                            const Divider(thickness: 3),
+                            Text(
+                              'Body: ${listName[index].body}',
+                              style: const TextStyle(fontSize: 15),
+                              maxLines: 2,
+                            ),
+                            const Divider(thickness: 3),
+                            Text(
+                              'Title: ${listName[index].title}',
+                              style: const TextStyle(fontSize: 15),
+                              maxLines: 2,
+                            ),
                           ],
                         ),
                       ),
@@ -52,7 +64,7 @@ class _ApiClassState extends State<ApiClass> {
                 },
               );
             }
-            return Text('There is no data');
+            return const Text('There is no data');
           }),
     );
   }
