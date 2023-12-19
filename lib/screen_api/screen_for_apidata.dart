@@ -28,8 +28,10 @@ class _ApiClassState extends State<ApiClass> {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(10)),
                       // height: 120,
-                      color: Colors.green,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
@@ -38,8 +40,7 @@ class _ApiClassState extends State<ApiClass> {
                           children: [
                             Text(
                               'User ID: ${listName[index].userId}',
-                              style: const TextStyle(
-                                  fontSize: 15),
+                              style: const TextStyle(fontSize: 15),
                               maxLines: 2,
                             ),
                             const Divider(thickness: 3),
