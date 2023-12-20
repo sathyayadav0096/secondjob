@@ -29,36 +29,38 @@ class _ScreenSecondState extends State<ScreenSecond> {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blue,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'PostID: ${listNameTewo[index].postId}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 14),
-                            ),
-                            Text('ID: ${listNameTewo[index].id}',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 14)),
-                            Text('Name: ${listNameTewo[index].name}',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 14)),
-                            Text('Email: ,${listNameTewo[index].email}',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 14)),
-                            Text(
-                              'Body: ,${listNameTewo[index].body}',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 14),
-                              maxLines: 2,
-                            ),
-                          ],
-                        ),
+                          borderRadius: BorderRadius.circular(10)
                       ),
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                          Text('PostID: ${listNameTewo[index].postId}',
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 14),),
+                          Text(
+                              'ID: ${listNameTewo[index].id}',
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 14)),
+                          Text('Name: ${listNameTewo[index].name}',
+                              style: const TextStyle(color: Colors.white,
+                                  fontSize: 14)),
+                          Text('Email: ,${listNameTewo[index].email}',
+                              style: const TextStyle(color: Colors.white,
+                                  fontSize: 14)),
+                          Text('Body: ,${listNameTewo[index].body}',
+                            style: const TextStyle(color: Colors.white,
+                                fontSize: 14),
+                            maxLines: 2,),
+                          Text('Name: Email: Body: ${listNameTewo[index]
+                              .name},${listNameTewo[index]
+                              .email},${listNameTewo[index].body}',style: TextStyle(color: Colors.green),)
+
+                      ],
                     ),
+                  ),)
+                  ,
                   );
                 },
               );
