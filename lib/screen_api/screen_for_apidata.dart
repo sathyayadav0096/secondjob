@@ -71,8 +71,7 @@ class _ApiClassState extends State<ApiClass> {
   }
 
   Future<List<ApiModel>> getData() async {
-    final response =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+    final response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
 
     if (response.statusCode == 200) {

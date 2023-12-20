@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/screen_api/screen_for_apidata.dart';
+import 'package:untitled/tabs_screens/models/second_api.dart';
 
 void main() {
   runApp(
     const MaterialApp(
-      home: ApiClass(),
+      home: ScreenSecond(),
     ),
   );
 }
@@ -25,17 +26,17 @@ class _StatusScreenState extends State<StatusScreen> {
           children: [
             Column(
               children: [
-                Text('Name'),
-                Text('Surname'),
-                Text('Dob'),
-                Text('Age'),
-                SizedBox(
+                const Text('Name'),
+                const Text('Surname'),
+                const Text('Dob'),
+                const Text('Age'),
+                const SizedBox(
                   width: 50,
                 ),
                 Padding(
-                  padding:  EdgeInsets.all(8.0),
+                  padding:  const EdgeInsets.all(8.0),
                   child: Container(
-                    child: Center(
+                    child:  Center(
                         child: Text(
                       "Sahre",
                       style: TextStyle(color: Colors.white),
@@ -48,7 +49,7 @@ class _StatusScreenState extends State<StatusScreen> {
                   ),
                 ),
                 Container(
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "Navigation",
                     style: TextStyle(color: Colors.white),
@@ -59,11 +60,11 @@ class _StatusScreenState extends State<StatusScreen> {
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(5)),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     "Mesage",
                     style: TextStyle(color: Colors.white),
