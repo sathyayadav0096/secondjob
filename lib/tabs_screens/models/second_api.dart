@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import '../../next_button.dart';
 import 'SecondApiModel.dart';
 
 class ScreenSecond extends StatefulWidget {
@@ -12,7 +13,12 @@ class ScreenSecond extends StatefulWidget {
 }
 
 class _ScreenSecondState extends State<ScreenSecond> {
-  List<ApiData> listNameTewo = [];
+  List<ApiData> listNameTwo = [];
+  @override
+  void initState() {
+    super.initState();
+    getDataTwo();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,45 +28,74 @@ class _ScreenSecondState extends State<ScreenSecond> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(
-                itemCount: listNameTewo.length,
+                itemCount: listNameTwo.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.blue,
-                          borderRadius: BorderRadius.circular(10)
-                      ),
+                          borderRadius: BorderRadius.circular(10)),
                       child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                          Text('PostID: ${listNameTewo[index].postId}',
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 14),),
-                          Text(
-                              'ID: ${listNameTewo[index].id}',
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'PostID: ${listNameTwo[index].postId}',
                               style: const TextStyle(
-                                  color: Colors.white, fontSize: 14)),
-                          Text('Name: ${listNameTewo[index].name}',
-                              style: const TextStyle(color: Colors.white,
-                                  fontSize: 14)),
-                          Text('Email: ,${listNameTewo[index].email}',
-                              style: const TextStyle(color: Colors.white,
-                                  fontSize: 14)),
-                          Text('Body: ,${listNameTewo[index].body}',
-                            style: const TextStyle(color: Colors.white,
-                                fontSize: 14),
-                            maxLines: 2,),
-                          Text('Name: Email: Body: ${listNameTewo[index]
-                              .name},${listNameTewo[index]
-                              .email},${listNameTewo[index].body}',style: TextStyle(color: Colors.green),)
-
-                      ],
+                                  color: Colors.white, fontSize: 14),
+                            ),
+                            Text('ID: ${listNameTwo[index].id}',
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 14)),
+                            Text('Name: ${listNameTwo[index].name}',
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 14)),
+                            Text('Email: ${listNameTwo[index].email}',
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 14)),
+                            Text(
+                              'Body: ${listNameTwo[index].body}',
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 14),
+                              maxLines: 2,
+                            ),
+                            // Text(
+                            //   'Name: Email: Body: ${listNameTewo[index].name},${listNameTewo[index].email},${listNameTewo[index].body}',
+                            //   style: const TextStyle(color: Colors.green),
+                            // ),
+                            const SizedBox(height: 35),
+                            Center(
+                              child: InkWell(
+                                onTap: () {
+                                  Text(
+                                      'Body: ${listNameTwo[index].body}',);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              NextButtonScreen(
+                                              )));
+                                },
+                                child: Container(
+                                  color: Colors.red,
+                                  child: const SizedBox(
+                                      height: 25,
+                                      width: 100,
+                                      child: Center(
+                                          child: Text(
+                                        'Next',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 18),
+                                      ))),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                     ),
-                  ),)
-                  ,
                   );
                 },
               );
@@ -78,11 +113,11 @@ class _ScreenSecondState extends State<ScreenSecond> {
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
       for (Map<String, dynamic> index in data) {
-        listNameTewo.add(ApiData.fromJson(index));
+        listNameTwo.add(ApiData.fromJson(index));
       }
-      return listNameTewo;
+      return listNameTwo;
     } else {
-      return listNameTewo;
+      return listNameTwo;
     }
   }
 }
