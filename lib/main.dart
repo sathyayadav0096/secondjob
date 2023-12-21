@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/screen_api/screen_for_apidata.dart';
-import 'package:untitled/tabs_screens/models/second_api.dart';
+
+import 'get_api_three/api_call_three.dart';
+
 
 void main() {
   runApp(
     const MaterialApp(
-      home: ScreenSecond(),
+      home: CallThree(),
     ),
   );
 }

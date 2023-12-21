@@ -7,11 +7,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:untitled/linear_grident.dart';
+import 'package:untitled/allScreens/linear_grident.dart';
 import 'package:untitled/tabs_screens/bottom_navigation.dart';
 
 import 'package:untitled/main.dart';
-import 'package:untitled/tabbar_screen.dart';
+import 'package:untitled/allScreens/tabbar_screen.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
