@@ -12,7 +12,7 @@ class _NextButtonScreenState extends State<NextButtonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leadinga: InkWell(
+        leading: InkWell(
           child: Icon(Icons.arrow_back),
           onTap: () {
             Navigator.pop(context);
