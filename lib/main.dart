@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
-
-import 'get_api_three/api_call_three.dart';
-
+import 'package:provider/provider.dart';
+import 'package:untitled/provider/provider_one.dart';
+import 'package:untitled/reverse_string/reverse_string.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
-      home: CallThree(),
-    ),
-  );
+  runApp(MaterialApp(
+    home: ReverseString(),
+  )
+      // MultiProvider(
+      //     providers: [ChangeNotifierProvider(create: (_) => Counter())],
+      //     child:  ReverseStringWidget()),
+      );
 }
+
+// void main() {
+//   runApp(
+//     MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(create: (_) => Counter()),
+//       ],
+//       child: const ProviderClass(),
+//     ),
+//   );
+// }
 
 class StatusScreen extends StatefulWidget {
   const StatusScreen({super.key});
@@ -35,9 +48,9 @@ class _StatusScreenState extends State<StatusScreen> {
                   width: 50,
                 ),
                 Padding(
-                  padding:  const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    child:  Center(
+                    child: Center(
                         child: Text(
                       "Sahre",
                       style: TextStyle(color: Colors.white),

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../tabs_screens/models/ApiModel.dart';
+import 'get_model.dart';
 
 class ApiClass extends StatefulWidget {
   const ApiClass({super.key});

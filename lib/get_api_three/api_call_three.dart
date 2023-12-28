@@ -1,11 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'model_three.dart';
+import '../fourth_get_api/fourth_api_model.dart';
 
 class CallThree extends StatefulWidget {
-  const CallThree({super.key});
+  const CallThree({Key? key}) : super(key: key);
 
   @override
   State<CallThree> createState() => _CallThreeState();
@@ -17,60 +16,73 @@ class _CallThreeState extends State<CallThree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: FutureBuilder(
-          future: getDataThree(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.green,
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('PostId: ${listApi[index].postId}',
-                                  style: TextStyle(fontSize: 16)),
-                              Text('ID: ${listApi[index].id}',
-                                  style: TextStyle(fontSize: 16)),
-                              Text('Name: ${listApi[index].name}',
-                                  style: TextStyle(fontSize: 16)),
-                              Text('Email: ${listApi[index].email}',
-                                  style: TextStyle(fontSize: 16)),
-                              Text(
-                                'Body: ${listApi[index].body}',
-                                style: TextStyle(fontSize: 16),
-                                maxLines: 2,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                },
-              );
-            }
-            return Center(child: CircularProgressIndicator());
-          }),
+      body: FutureBuilder(  // this is mandatory
+        future: getDataThree(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: listApi.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.green,
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('PostId: }',
+                            style: TextStyle(fontSize: 16)),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            );
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
+      ),
     );
   }
 
-  Future<List<ThirdModelApi>> getDataThree() async {
-    final response = await http.get(
-        Uri.parse('https://jsonplaceholder.typicode.com/comments?postId=1'));
-    var data = jsonDecode(response.body.toString());
-    if (response.statusCode == 200) {
-      for (Map<String, dynamic> index in data) {
-        listApi.add(ThirdModelApi.fromJson(index));
+  Future<void> getDataThree() async {
+    try {
+      final response = await http.get(Uri.parse('https://postman-echo.com/get?foo1=bar1&foo2=bar2'));
+
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body) as Map<String, dynamic>;
+        setState(() {
+          listApi.add(ThirdModelApi.fromJson(data));
+        });
+      } else {
+        // Handle error or throw an exception
+        throw Exception('Failed to load data');
       }
+    } catch (error) {
+      // Handle the error here, you can log it or show a user-friendly message
+      print('Error in getDataThree: $error');
     }
-    return listApi;
   }
+
+
+// Future<void> getDataThree() async {
+  //   final response = await http.get(Uri.parse('https://postman-echo.com/get?foo1=bar1&foo2=bar2'));
+  //   if (response.statusCode == 200) {
+  //     var data = jsonDecode(response.body) as Map<String, dynamic>;
+  //     setState(() {
+  //       listApi.add(ThirdModelApi.fromJson(data));
+  //     });
+  //   } else {
+  //     // Handle error or throw an exception
+  //     throw Exception('Failed to load data');
+  //   }
+  // }
+
 }
