@@ -10,20 +10,20 @@ class RazorPayPractice extends StatefulWidget {
 
 class _RazorPayPracticeState extends State<RazorPayPractice> {
   void handlePaymentSuccessResponse(PaymentSuccessResponse response) {
-    print(response.data.toString());
+    print(response.data.toString()); // Todo Replace it
     showAlertDialog(
         context, "Payment Successful", "Payment ID: ${response.paymentId}");
   }
 
   void handlePaymentErrorResponse(PaymentFailureResponse response) {
-    print(response.message);
+    print(response.message); // Todo Replace it
 
     showAlertDialog(context, "Payment Failed",
         "Code: ${response.code}\nDescription: ${response.message}\nMetadata:${response.error.toString()}");
   }
 
   void handleExternalWalletSelected(ExternalWalletResponse response) {
-    print(response.walletName);
+    print(response.walletName); // Todo Replace it
     showAlertDialog(
         context, "External Wallet Selected", "${response.walletName}");
   }
@@ -71,15 +71,15 @@ class _RazorPayPracticeState extends State<RazorPayPractice> {
                   onPressed: () {
                     Razorpay razorpay = Razorpay();
                     var options = {
-                      'key': 'rzp_test_6CHvaup1NIo2t2',
-                      'amount': 100 * 100,
-                      'name': 'Sathya.',
-                      'description': 'Testing',
+                      'key': 'rzp_test_6CHvaup1NIo2t2', // Todo Replace it
+                      'amount': 100 * 100, // Todo Replace it
+                      'name': 'Sathya.', // Todo Replace it
+                      'description': 'Testing', // Todo Replace it
                       'retry': {'enabled': true, 'max_count': 1},
                       'send_sms_hash': true,
                       'prefill': {
-                        'contact': '9666033750',
-                        'email': 'sathyayadav27@gmail.com'
+                        'contact': '9666033750', // Todo Replace it
+                        'email': 'sathyayadav27@gmail.com' // Todo Replace it
                       },
                       'external': {
                         'wallets': ['paytm']
@@ -88,17 +88,17 @@ class _RazorPayPracticeState extends State<RazorPayPractice> {
 
                     razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS,
                         handlePaymentSuccessResponse);
-                    print('Success Payment to Sathya Account');
+                    print('Success Payment to Sathya Account'); // Todo Replace it
                     razorpay.on(Razorpay.EVENT_PAYMENT_ERROR,
                         handlePaymentErrorResponse);
-                    print('Error Payment');
+                    print('Error Payment'); // Todo Replace it
                     razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET,
                         handleExternalWalletSelected);
-                    print('External Wallet');
+                    print('External Wallet'); // Todo Replace it
                     razorpay.open(options);
                   },
                   child: const Text(
-                    'Payment',
+                    'Payment',  // Todo Replace it
                     style: TextStyle(
                         color: Colors.green,
                         fontSize: 20,
