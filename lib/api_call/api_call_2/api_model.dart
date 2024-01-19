@@ -1,12 +1,12 @@
-class ApiModel {
+class SecondModel {
   int? userId;
   int? id;
   String? title;
   String? body;
 
-  ApiModel({this.userId, this.id, this.title, this.body});
+  SecondModel({this.userId, this.id, this.title, this.body});
 
-  ApiModel.fromJson(Map<String, dynamic> json) {
+  SecondModel.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
     id = json['id'];
     title = json['title'];

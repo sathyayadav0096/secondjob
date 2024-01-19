@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:untitled/provider/provider_one.dart';
-import 'package:untitled/reverse_string/reverse_string.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:untitled/razorpay/razorpay_account.dart';
+import 'package:untitled/razorpay/second_practice_razorpay.dart';
+import 'package:untitled/reverse_string_second.dart';
+
+import 'api_call/api_call_1/final_api_follow this.dart';
+import 'api_call/api_call_2/api_call.dart';
+import 'assignment/assignment_interview.dart';
+
 
 void main() {
-  runApp(MaterialApp(
-    home: ReverseString(),
+  runApp(const GetMaterialApp(debugShowCheckedModeBanner: false,
+    home: RazorPayPractice(),
   )
+
       // MultiProvider(
       //     providers: [ChangeNotifierProvider(create: (_) => Counter())],
       //     child:  ReverseStringWidget()),
       );
 }
-
-// void main() {
-//   runApp(
-//     MultiProvider(
-//       providers: [
-//         ChangeNotifierProvider(create: (_) => Counter()),
-//       ],
-//       child: const ProviderClass(),
-//     ),
-//   );
-// }
 
 class StatusScreen extends StatefulWidget {
   const StatusScreen({super.key});
@@ -50,7 +46,7 @@ class _StatusScreenState extends State<StatusScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    child: Center(
+                    child: const Center(
                         child: Text(
                       "Sahre",
                       style: TextStyle(color: Colors.white),
