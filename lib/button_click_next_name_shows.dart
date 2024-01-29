@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
 
-class FirstName extends StatefulWidget {
-  const FirstName({super.key});
+class FirstSecondName extends StatefulWidget {
+  const FirstSecondName({super.key});
 
   @override
-  State<FirstName> createState() => _FirstNameState();
+  State<FirstSecondName> createState() => _FirstSecondNameState();
 }
 
-class _FirstNameState extends State<FirstName> {
-  bool second = true;
+class _FirstSecondNameState extends State<FirstSecondName> {
+  bool click = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(second ? 'Sathya' : 'Mahesh'),
+            Text(click ? 'Geetha' : 'Ravindra'),
             TextButton(
                 onPressed: () {
                   setState(() {
-                    second = !second;
+                    click = !click;
                   });
                 },
-                child: Text('Click'))
+                child: Text('Ok'))
           ],
         ),
       ),
