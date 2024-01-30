@@ -8,6 +8,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:untitled/allScreens/linear_grident.dart';
+import 'package:untitled/assignment/map.dart';
+import 'package:untitled/provider/provider.dart';
 import 'package:untitled/tabs_screens/bottom_navigation.dart';
 
 import 'package:untitled/main.dart';
@@ -16,7 +18,7 @@ import 'package:untitled/allScreens/tabbar_screen.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget( StatusScreen());
+    await tester.pumpWidget( MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
