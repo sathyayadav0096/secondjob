@@ -1,15 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'button_click_next_name_shows.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled/provider/provider.dart';
 
 void main() {
   runApp(GetMaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: FirstSecondName(),
-  )
-
-      // MultiProvider(
-      //     providers: [ChangeNotifierProvider(create: (_) => Counter())],
-      //     child:  ReverseStringWidget()),
-      );
+    home: ChangeNotifierProvider(
+        create: (context) => TimerProvider(), child: ProviderClass()),
+  ));
 }
