@@ -10,18 +10,21 @@ class ExtraClass extends StatefulWidget {
 class _ExtraClassState extends State<ExtraClass> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-              child: Text(
-            'Testing Provider',
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 40, color: Colors.blue),
-          ))
+            child: Text(
+              'Testing Provider',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                  color: Colors.blue),
+            ),
+          ),
         ],
-
-    ));
+      ),
+    );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled/provider_cart/providr_cls.dart'; // Correct the import statement
 
 // Todo part one
 class ItemModel {

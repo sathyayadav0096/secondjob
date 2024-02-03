@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/extra.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+
+import 'navigation_page.dart';
 
 class PrCla extends StatefulWidget {
   const PrCla({super.key});
@@ -15,14 +18,15 @@ class _PrClaState extends State<PrCla> {
       body: SafeArea(
         child: Column(
           children: [
-            Center(
+            const Center(
                 child: Text(
               'Multi',
               style: TextStyle(fontSize: 80, color: Colors.red),
             )),
             TextButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ExtraClass()));
+                 //Navigator.push(context, MaterialPageRoute(builder: (context)=>const ExtraClass()));
+               Get.to(ExtraClass());
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.green
