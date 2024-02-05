@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/multi_provider/multi_provider.dart';
 
-class BarSnack extends StatefulWidget {
-  const BarSnack({super.key});
+class SnackBottomDialogBox extends StatefulWidget {
+  const SnackBottomDialogBox({super.key});
 
   @override
-  State<BarSnack> createState() => _BarSnackState();
+  State<SnackBottomDialogBox> createState() => _SnackBottomDialogBoxState();
 }
 
-class _BarSnackState extends State<BarSnack> {
+class _SnackBottomDialogBoxState extends State<SnackBottomDialogBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,31 +35,40 @@ class _BarSnackState extends State<BarSnack> {
                 style: TextButton.styleFrom(backgroundColor: Colors.red),
                 onPressed: () {
                   Get.defaultDialog(
-                      cancel: Text('No'),
+                      cancel: const Text('No'),
                       onCancel: () {
                         Get.back();
                       },
-                      confirm: Text('Confirm'),
+                      confirm: const Text('Confirm'),
                       onConfirm: () {
-                        Get.to(PrCla());
+                        Get.to(const PrCla());
                       },
                       title: 'Are Sure!',
                       middleText: 'Please Select Stay or Exit');
                 },
                 child: const Text('Dialog Box')),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           ElevatedButton(
+              style: TextButton.styleFrom(backgroundColor: Colors.blue),
               onPressed: () {
                 Get.bottomSheet(
                   Container(
-                    height: Get.height *0.1,
-                      width: Get.width *0.8,
-                      color: Colors.white,
-                      child: Center(child: const Text('Welcome Bottom Sheet'))),
+                    height: Get.height * 0.2,
+                    width: double.infinity,
+                    child: const Text(
+                        'Hello guys this is not correct way to use this course'),
+                  ),
+                  shape: RoundedRectangleBorder(
+                      //this line helps to remove the bottomsheet radious
+                      borderRadius: BorderRadius.circular(0)),
+                  backgroundColor: Colors.white,
                 );
               },
-              child: const Text('Bottom Sheet'))
+              child: const Text(
+                'Bottom Sheet',
+                style: TextStyle(color: Colors.black),
+              ))
         ],
       ),
     );
