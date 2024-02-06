@@ -16,6 +16,7 @@ dependencies:
   firebase_core: any
   provider: any
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -23,6 +24,8 @@ dev_dependencies:
   image_picker:
   google_maps_flutter: ^2.0.10
   razorpay_flutter: any
+  flutter_localization: ^0.2.0
+
 
 
 

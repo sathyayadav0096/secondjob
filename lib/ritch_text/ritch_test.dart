@@ -8,6 +8,7 @@ class Mana extends ChangeNotifier {
 
       appBar: AppBar(
         title: Text('Rich Text Example'),
+        leading: Icon(Icons.arrow_back_ios),
       ),
       body: Center(
         child: RichText(

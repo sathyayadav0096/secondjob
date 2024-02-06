@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/extra.dart';
 import 'package:untitled/multi_provider/multi_provider.dart';
 
 class SnackBottomDialogBox extends StatefulWidget {
@@ -35,13 +36,17 @@ class _SnackBottomDialogBoxState extends State<SnackBottomDialogBox> {
                 style: TextButton.styleFrom(backgroundColor: Colors.red),
                 onPressed: () {
                   Get.defaultDialog(
-                      cancel: const Text('No'),
+                      cancel: const Text(
+                        'No',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      textCancel: 'Cancel',
                       onCancel: () {
                         Get.back();
                       },
-                      confirm: const Text('Confirm'),
+                      textConfirm: 'Ok',
                       onConfirm: () {
-                        Get.to(const PrCla());
+                        Get.back();
                       },
                       title: 'Are Sure!',
                       middleText: 'Please Select Stay or Exit');
@@ -68,8 +73,48 @@ class _SnackBottomDialogBoxState extends State<SnackBottomDialogBox> {
               child: const Text(
                 'Bottom Sheet',
                 style: TextStyle(color: Colors.black),
-              ))
+              )),
+          IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(Icons.cancel)),
+          ElevatedButton(
+              onPressed: () {
+                Get.to(const ThemeTesting());
+              },
+              child: const Text('Change Theme'))
         ],
+      ),
+    );
+  }
+}
+
+class ThemeTesting extends StatefulWidget {
+  const ThemeTesting({super.key});
+
+  @override
+  State<ThemeTesting> createState() => _ThemeTestingState();
+}
+
+class _ThemeTestingState extends State<ThemeTesting> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark(),
+      home: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              const Center(child: Text('Theme')),
+              ElevatedButton(
+                  onPressed: () {
+                    Get.updateLocale(const Locale('te-IN'));
+                  },
+                  child: const Text('Language')),
+            ],
+          ),
+        ),
       ),
     );
   }
