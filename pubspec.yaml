@@ -1,5 +1,5 @@
 name: untitled
-version: 1.0.0+1
+version:
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
@@ -10,11 +10,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  http: ^1.1.2
-  get: ^4.6.6
-  firebase_auth: any
-  firebase_core: any
-  provider: any
+  http:
+  get:
+  provider:
+  intl:
 
 
 dev_dependencies:
@@ -22,9 +21,8 @@ dev_dependencies:
     sdk: flutter
   dotted_line: ^3.2.2
   image_picker:
-  google_maps_flutter: ^2.0.10
   razorpay_flutter: any
-  flutter_localization: ^0.2.0
+  get_storage: any
 
 
 

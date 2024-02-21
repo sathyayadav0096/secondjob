@@ -15,11 +15,11 @@ class ScreenSecond extends StatefulWidget {
 class _ScreenSecondState extends State<ScreenSecond> {
   List<ApiData> listNameTwo = [];
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   getDataTwo();
-  // }
+  @override
+  void initState() {
+    super.initState();
+    getDataTwo();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,30 +113,15 @@ class _ScreenSecondState extends State<ScreenSecond> {
           Uri.parse('https://jsonplaceholder.typicode.com/comments?postId=1'));
       var data = jsonDecode(response.body);
       if (response.statusCode == 200) {
-        // print('this is api data');
         print(data);
         for (int a = 0; a < data.length; a++) {
           listNameTwo.add(ApiData.fromJson(data[a]));
         }
       }
-     return listNameTwo;
+      return listNameTwo;
     } catch (e) {
       print("Error: $e");
       return [];
     }
   }
 }
-
-// Future getEventDetails({required String uid}) async {
-//   try {
-//     response = await Api().get('/event/$uid');
-//
-//     if (response?.statusCode == 200) {
-//       completer.complete(response?.data);
-//     }
-//   } catch (e) {
-//     completer.complete(response?.data);
-//   }
-//
-//   return completer.future;
-// }
