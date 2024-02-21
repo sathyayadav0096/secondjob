@@ -10,10 +10,10 @@ import 'GEETHA_CLASSES/column_row.dart';
 import 'api_call/api_call_1/final_api_follow this.dart';
 import 'api_call/api_call_2/api_call.dart';
 import 'api_call_delete_second/api_cls.dart';
-import 'api_call_third_delete/api_three.dart';
+import 'api_call_read_more_less/api_three.dart';
 import 'coderunning_ios_orandroid/ios_orandroid.dart';
-import 'delete.dart';
-import 'extra.dart';
+
+
 import 'getx_state_management/state_management/state_management.dart';
 import 'getx_storage/container.dart';
 import 'linear_grident/linear_grident_second.dart';
@@ -41,10 +41,10 @@ void main() {
           Provider<MyDatas>(create: (context) => MyDatas()),
           Provider<MyCls>(create: (context) => MyCls()),
           Provider<ClmRow>(create: (context) => ClmRow()),
-          Provider<ApCalThree>(create: (context) => ApCalThree()),
+          Provider<ThirdApiCls>(create: (context) => ThirdApiCls()),
         ],
         // which page we want to run and see in the out put here we need to specify the class name
-        child: ApCalThree(),
+        child: ThirdApiCls(),
       ),
     ),
   );
