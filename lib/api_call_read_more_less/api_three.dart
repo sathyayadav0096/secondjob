@@ -36,13 +36,14 @@ class _ThirdApiClsState extends State<ThirdApiCls> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text('User Id: ${modelData[index].userId}',
-                                  style: TextStyle(color: Colors.white)),
+                                  style: const TextStyle(color: Colors.white)),
                               Text('Title:,${modelData[index].title}',
-                                  style: TextStyle(color: Colors.white)),
+                                  style: const TextStyle(color: Colors.white)),
+
                               Text(
                                 'Body: ${modelData[index].body}',
                                 maxLines: showAllLines ? null : 2, // Show all lines if showAllLines is true
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                               ),
                               if (!showAllLines) // Show "Read More" button only if not showing all lines
                                 TextButton(
@@ -51,7 +52,7 @@ class _ThirdApiClsState extends State<ThirdApiCls> {
                                       showAllLines = true; // Toggle to show all lines
                                     });
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'Read More',
                                     style: TextStyle(color: Colors.blue),
                                   ),
@@ -63,7 +64,7 @@ class _ThirdApiClsState extends State<ThirdApiCls> {
                                       showAllLines = false; // Toggle to show limited lines
                                     });
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'Read Less',
                                     style: TextStyle(color: Colors.blue),
                                   ),
@@ -75,7 +76,7 @@ class _ThirdApiClsState extends State<ThirdApiCls> {
                     );
                   });
             }
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }),
     );
   }
