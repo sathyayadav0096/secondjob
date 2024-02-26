@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:untitled/GEETHA_CLASSES/reusable_widgets.dart';
 
 import 'navigation_page.dart';
 
@@ -12,6 +13,10 @@ class PrCla extends StatefulWidget {
 }
 
 class _PrClaState extends State<PrCla> {
+  final String name = 'sathya';
+  final String age = 'sathya';
+  final String adobge = 'sathya';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +36,8 @@ class _PrClaState extends State<PrCla> {
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.green
                     )),
-                child: Text('Next'))
+                child: Text('Next')),
+
           ],
         ),
       ),

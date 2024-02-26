@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common_data/dottetline_vertical_horizontal.dart';
+
 class ClmRow extends StatefulWidget {
   const ClmRow({Key? key}) : super(key: key);
 
@@ -25,7 +27,9 @@ class _ClmRowState extends State<ClmRow> {
                     Colors.black,
                     Colors.yellow,
                   ])),
-            )
+            ),
+            SizedBox(height: 40,),
+            CommonDottedHorizontal()
           ],
         ),
       ),
