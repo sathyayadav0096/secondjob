@@ -14,7 +14,7 @@ class _ResignationState extends State<Resignation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Row(
+        title:  Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Icon(Icons.arrow_back),
@@ -24,8 +24,12 @@ class _ResignationState extends State<Resignation> {
                 SizedBox(
                   width: 15,
                 ),
-                Icon(Icons.delete_outline),
                 SizedBox(
+                    height: 27,
+                    width: 27,
+                    child: Image.asset(
+                      'assets/delete.png',
+                    )),                SizedBox(
                   width: 15,
                 ),
                 Icon(Icons.mail_outline),
@@ -131,25 +135,27 @@ class _ResignationState extends State<Resignation> {
                       Text('12:30 PM'),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 18, left: 34),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 18, left: 34),
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.sentiment_satisfied,
                           size: 19,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        Icon(
-                          Icons.reply_outlined,
-                          size: 19,
-                        ),
                         SizedBox(
+                            height: 16,
+                            width: 16,
+                            child: Image.asset(
+                              'assets/reply.png',
+                            )),
+                        const SizedBox(
                           width: 10,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.more_vert,
                           size: 19,
                         )
@@ -200,7 +206,7 @@ class _ResignationState extends State<Resignation> {
                       style: TextStyle(fontSize: 12),
                     ),
                     SizedBox(
-                      height: 25,
+                      height: 20,
                     ),
                     Text(
                       'Thanks & Regards\nDeepika',
@@ -210,13 +216,13 @@ class _ResignationState extends State<Resignation> {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 18,
               ),
               const Divider(
                 thickness: .5,
               ),
               const SizedBox(
-                height: 20,
+                height: 18,
               ),
               Row(
                 children: [
@@ -269,25 +275,27 @@ class _ResignationState extends State<Resignation> {
                       ),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 18, left: 44),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 18, left: 44),
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.sentiment_satisfied,
                           size: 19,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
-                        Icon(
-                          Icons.reply_outlined,
-                          size: 19,
-                        ),
                         SizedBox(
+                            height: 16,
+                            width: 16,
+                            child: Image.asset(
+                              'assets/reply.png',
+                            )),
+                        const SizedBox(
                           width: 10,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.more_vert,
                           size: 19,
                         )
@@ -301,7 +309,7 @@ class _ResignationState extends State<Resignation> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Hi Deepika', style: TextStyle(fontSize: 12)),
+                    Text('Hi Deepika,', style: TextStyle(fontSize: 12)),
                     SizedBox(
                       height: 17,
                     ),
@@ -313,7 +321,7 @@ class _ResignationState extends State<Resignation> {
                       'All the best for your future endeavours.',
                       style: TextStyle(fontSize: 12),
                     ),
-                    SizedBox(height: 35),
+                    SizedBox(height: 30),
                     Text(
                       'Thanks & Regards\nHarish',
                       style: TextStyle(fontSize: 12),
@@ -322,7 +330,7 @@ class _ResignationState extends State<Resignation> {
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 25,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -333,13 +341,13 @@ class _ResignationState extends State<Resignation> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.black)),
-                    child: const Row(
+                    child:  Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.keyboard_return,
-                          size: 15,
-                        ),
+                        SizedBox(
+                            height: 16,
+                            width: 16,
+                            child: Image.asset('assets/reply.png',)),
                         SizedBox(
                           width: 5,
                         ),
@@ -353,13 +361,15 @@ class _ResignationState extends State<Resignation> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.black)),
-                    child: const Row(
+                    child:  Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.reply_all,
-                          size: 15,
-                        ),
+                        SizedBox(
+                            height: 16,
+                            width: 16,
+                            child: Image.asset(
+                              'assets/reply_all.png',
+                            )),
                         SizedBox(
                           width: 5,
                         ),
@@ -389,6 +399,24 @@ class _ResignationState extends State<Resignation> {
                   )
                 ],
               ),
+              const Spacer(),
+              Container(
+                height: 38,
+                width: double.infinity,
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Icon(
+                      Icons.mail_outline,
+                      size: 25,
+                    ),
+                    Icon(
+                      Icons.videocam_outlined,
+                      size: 30,
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
