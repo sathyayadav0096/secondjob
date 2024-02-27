@@ -396,7 +396,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                             size: 25,
                                           ),
                                           Text(
-                                            '22,265.64',
+                                            '0.00',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 20),
@@ -406,7 +406,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                       Row(
                                         children: [
                                           Text(
-                                            '0.97',
+                                            '0.0',
                                             style: TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.grey),
@@ -433,7 +433,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Cash Balance',
+                                    'Metal Price',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.grey,
@@ -460,13 +460,13 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         size: 24,
                                       ),
                                       Text(
-                                        '1,999.00',
+                                        '26.20',
                                         style: TextStyle(fontSize: 20),
                                       ),
                                     ],
                                   ),
                                   Text(
-                                    '-0.4 %',
+                                    '-0.15 %',
                                     style: TextStyle(
                                       fontSize: 20,
                                       color: Colors.brown,
@@ -525,7 +525,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                           Row(
                                             children: [
                                               Text(
-                                                '11:050 oz',
+                                                '0.00 oz',
                                                 style: TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.grey),
@@ -546,7 +546,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                             size: 25,
                                           ),
                                           Text(
-                                            '22,265.64',
+                                            '0.00',
                                             style: TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 20),
@@ -556,7 +556,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                       Row(
                                         children: [
                                           Text(
-                                            '0.97',
+                                            '0.0',
                                             style: TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.grey),
@@ -583,7 +583,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    'Cash Balance',
+                                    'Metal Price',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.grey,
@@ -610,13 +610,13 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         size: 24,
                                       ),
                                       Text(
-                                        '1,999.00',
+                                        '1,102.30',
                                         style: TextStyle(fontSize: 20),
                                       ),
                                     ],
                                   ),
                                   Text(
-                                    '-0.4 %',
+                                    '-0.08 %',
                                     style: TextStyle(
                                       fontSize: 20,
                                       color: Colors.brown,

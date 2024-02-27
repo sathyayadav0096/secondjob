@@ -16,6 +16,10 @@ dependencies:
   intl:
   sqflite:
   path_provider:
+  google_maps_flutter: ^2.5.3
+  flutter_map_location_marker: ^8.0.8
+  geolocator: ^11.0.0
+
 
 
 dev_dependencies:
