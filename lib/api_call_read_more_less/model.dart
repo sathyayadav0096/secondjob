@@ -28,6 +28,10 @@ class ModelData {
     title = json['title']?.toString();
     body = json['body']?.toString();
   }
+
+  get bound => null;
+
+  get legs => null;
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['userId'] = userId;

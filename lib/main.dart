@@ -15,7 +15,7 @@ import 'api_call/api_call_1/final_api_follow this.dart';
 import 'api_call/api_call_2/api_call.dart';
 import 'api_call_delete_second/api_cls.dart';
 import 'api_call_read_more_less/api_three.dart';
-import 'assignment/model.dart';
+import 'assignment/google_map.dart';
 import 'assignment/navigation_bar.dart';
 import 'assignment/ui_design.dart';
 import 'coderunning_ios_orandroid/ios_orandroid.dart';
@@ -23,6 +23,7 @@ import 'coderunning_ios_orandroid/ios_orandroid.dart';
 import 'getx_state_management/state_management/state_management.dart';
 import 'getx_storage/container.dart';
 import 'linear_grident/linear_grident_second.dart';
+
 
 void main() {
   runApp(
@@ -55,9 +56,10 @@ void main() {
           Provider<AssignMentData>(create: (context) => AssignMentData()),
           Provider<PadImg>(create: (context) => PadImg()),
           Provider<Resignation>(create: (context) => Resignation()),
+          Provider<MapsApi>(create: (context) => MapsApi()),
         ],
         // which page we want to run and see in the out put here we need to specify the class name
-        child: Resignation(),
+        child: MapsApi(),
       ),
     ),
   );
