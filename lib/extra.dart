@@ -1,674 +1,199 @@
-// import 'dart:ui';
+// import 'dart:convert';
 //
-// import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
-// import 'package:flutter/widgets.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:location/location.dart';
 //
-// class AssignMentData extends StatefulWidget {
-//   const AssignMentData({Key? key});
+// import 'package:http/http.dart' as http;
+//
+// class MapsApi extends StatefulWidget {
+//   const MapsApi({Key? key}) : super(key: key);
 //
 //   @override
-//   State<AssignMentData> createState() => _AssignMentDataState();
+//   State<MapsApi> createState() => _MapsApiState();
 // }
 //
-// class _AssignMentDataState extends State<AssignMentData> {
-//   List<String> metals = ['Gold', 'Silver', 'Platinum'];
-//   //metals[a] == 'Gold' ? goldColor :  metals[a] == 'Silver' : silverColorplatinumColor
+// class _MapsApiState extends State<MapsApi> {
+//   final Location _locationController = Location();
+//
+//   LatLng _startLocation = LatLng(13.0826846, 80.2707516);
+//   LatLng _endLocation = LatLng(9.9252004, 78.11977530000001);
+//
+//   // static const LatLng _madurai = LatLng(9.9252004, 78.11977530000001);
+//   // static const LatLng _end_location = LatLng(13.0810129, 80.2709696);
+//   // static const LatLng _DRIVING = LatLng(13.0784912, 80.2486368);
+//   CameraPosition cameraAngle =
+//   CameraPosition(target: LatLng(13.0826846, 80.2707516), zoom: 13);
+//   LatLng? _currentP;
+//
+//   Map<PolylineId, Polyline> polylines = {};
+//
+//   @override
+//   void initState() {
+//     super.initState();
+//     getGeocode();
+//     // getLocationUpdates();
+//   }
+//
+//   final String _address = "New York, NY"; // Address to geocode
+//   final String _apiKey =
+//       "AIzaSyBl0Pm1-cZM3-IdYhEkmEQ2A4XxSJpIRdQ"; // Replace with your actual API key
+//   String? stln;
+//   String? stlg;
+//   String? enln;
+//   String? enlg;
+//
+//   Future<void> getGeocode() async {
+//     print('Step 1: Constructing endpoint URL');
+//     final String endpoint =
+//         'https://firebasestorage.googleapis.com/v0/b/jill-soap-6a1ac.appspot.com/o/maps.json?alt=media&token=bfd28b0f-06d7-4d25-8d45-e218466c7449';
+//     print('Step 2: Sending HTTP request to $endpoint');
+//     final response = await http.get(Uri.parse(endpoint));
+//
+//     if (response.statusCode == 200) {
+//       print('Step 3: Parsing response');
+//       Map<String, dynamic> data = json.decode(response.body);
+//       print('Step 4: Printing decoded data');
+//       stln = data['routes'][0]['legs'][0]['start_location']['lng'].toString();
+//       stlg = data['routes'][0]['legs'][0]['start_location']['lat'].toString();
+//
+//       enlg = data['routes'][0]['legs'][0]['end_location']['lng'].toString();
+//       enln = data['routes'][0]['legs'][0]['end_location']['lat'].toString();
+//       setState(() {
+//         cameraAngle = CameraPosition(
+//             target: LatLng(
+//               double.parse(stlg.toString()),
+//               double.parse(stln.toString()),
+//             ),
+//             zoom: 13);
+//       });
+//
+//       print(stln.toString());
+//     } else {
+//       print('Failed to load geocode');
+//     }
+//   }
 //
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       backgroundColor: Colors.grey.shade200,
-//       body: SafeArea(
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Stack(
-//               children: [
-//                 SingleChildScrollView(
-//                   child: Container(
-//                     height: 260,
-//                     width: double.infinity,
-//                     color: Colors.blueAccent,
-//                     child: Padding(
-//                       padding:
-//                       const EdgeInsets.only(top: 20, left: 15, right: 15),
-//                       child: Column(
-//                         children: [
-//                           Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             children: [
-//                               const Row(
-//                                 children: [
-//                                   Icon(
-//                                     Icons.attach_money,
-//                                     color: Colors.white,
-//                                     size: 40,
-//                                   ),
-//                                   Text(
-//                                     '22,650.51',
-//                                     style: TextStyle(
-//                                         fontWeight: FontWeight.bold,
-//                                         color: Colors.white,
-//                                         fontSize: 30),
-//                                   ),
-//                                 ],
-//                               ),
-//                               Row(
-//                                 children: [
-//                                   Container(
-//                                     height: 40,
-//                                     width: 150,
-//                                     decoration: BoxDecoration(
-//                                         color: const Color(0xFF083663),
-//                                         borderRadius: BorderRadius.circular(25)),
-//                                     child: const Row(
-//                                       mainAxisAlignment: MainAxisAlignment.center,
-//                                       children: [
-//                                         Text(
-//                                           '0.97',
-//                                           style: TextStyle(
-//                                               color: Colors.white,
-//                                               fontSize: 18,
-//                                               fontWeight: FontWeight.bold),
-//                                         ),
-//                                         Icon(
-//                                           Icons.percent,
-//                                           color: Colors.white,
-//                                           size: 20,
-//                                         ),
-//                                         Icon(
-//                                           Icons.arrow_drop_up,
-//                                           color: Colors.green,
-//                                           size: 40,
-//                                         )
-//                                       ],
-//                                     ),
-//                                   )
-//                                 ],
-//                               )
-//                             ],
-//                           ),
-//                           const SizedBox(height: 10),
-//                           const Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             children: [
-//                               Text(
-//                                 'Account Value',
-//                                 style: TextStyle(
-//                                   fontSize: 14,
-//                                   color: Colors.white,
-//                                 ),
-//                               ),
-//                               Text(
-//                                 'Since lase purchase',
-//                                 style: TextStyle(
-//                                   fontSize: 14,
-//                                   color: Colors.white,
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                           const SizedBox(height: 10),
-//                           const Divider(
-//                             color: Colors.white,
-//                           ),
-//                           const SizedBox(height: 10),
-//                           const Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             children: [
-//                               Text(
-//                                 'Cash Balance',
-//                                 style: TextStyle(
-//                                   fontSize: 14,
-//                                   color: Colors.white,
-//                                 ),
-//                               ),
-//                               Text(
-//                                 'Metal Holdings',
-//                                 style: TextStyle(
-//                                   fontSize: 14,
-//                                   color: Colors.white,
-//                                 ),
-//                               ),
-//                             ],
-//                           ),
-//                           const SizedBox(height: 2),
-//                           const Row(
-//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                             children: [
-//                               Row(
-//                                 children: [
-//                                   Icon(
-//                                     Icons.attach_money,
-//                                     color: Colors.white,
-//                                     size: 25,
-//                                   ),
-//                                   Text(
-//                                     '384.87',
-//                                     style: TextStyle(
-//                                         fontWeight: FontWeight.bold,
-//                                         color: Colors.white,
-//                                         fontSize: 20),
-//                                   ),
-//                                   Icon(
-//                                     Icons.error_outline,
-//                                     color: Colors.white,
-//                                     size: 15,
-//                                   ),
-//                                 ],
-//                               ),
-//                               Row(
-//                                 children: [
-//                                   Icon(
-//                                     Icons.attach_money,
-//                                     color: Colors.white,
-//                                     size: 25,
-//                                   ),
-//                                   Text(
-//                                     '22,265.64',
-//                                     style: TextStyle(
-//                                         fontWeight: FontWeight.bold,
-//                                         color: Colors.white,
-//                                         fontSize: 20),
-//                                   ),
-//                                 ],
-//                               ),
-//                             ],
-//                           )
-//                         ],
-//                       ),
-//                     ),
-//                   ),
+//       body: Stack(
+//         children: [
+//           GoogleMap(
+//             initialCameraPosition: cameraAngle,
+//             markers: {
+//               // Todo below two Madurai
+//               Marker(
+//                   markerId: MarkerId('_southwest'),
+//                   icon: BitmapDescriptor.defaultMarker,
+//                   position: _endLocation),
+//               // const Marker(
+//               //     markerId: MarkerId('Madurai, Tamil Nadu, India'),
+//               //     icon: BitmapDescriptor.defaultMarker,
+//               //     position: _madurai),
+//               //
+//               // // Todo below two Chennai
+//               // const Marker(
+//               //     markerId: MarkerId('Chennai, Tamil Nadu, India'),
+//               //     icon: BitmapDescriptor.defaultMarker,
+//               //     position: _end_location),
+//               // const Marker(
+//               //     markerId: MarkerId('DRIVING'),
+//               //     icon: BitmapDescriptor.defaultMarker,
+//               //     position: _DRIVING),
+//             },
+//             polylines: Set<Polyline>.of(polylines.values),
+//           ),
+//           if (_currentP != null)
+//             Positioned(
+//               top: 20.0,
+//               left: 20.0,
+//               child: Card(
+//                 child: Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: Text(
+//                       'Current Location: ${_currentP!.latitude}, ${_currentP!.longitude}'),
 //                 ),
-//                 ListView.builder(
-//                     itemCount: 3,
-//                     itemBuilder: (context, index) {
-//                       String metal = metals[index];
-//                       return Padding(
-//                         padding: const EdgeInsets.only(top: 200, left: 18, right: 18),
-//                         child: Column(
-//                           children: [
-//                             Container(
-//                               height: 150,
-//                               width: double.infinity,
-//                               decoration: BoxDecoration(
-//                                   color: Colors.white,
-//                                   borderRadius: BorderRadius.circular(6)),
-//                               child: Padding(
-//                                 padding: const EdgeInsets.only(
-//                                     top: 15, left: 15, right: 15),
-//                                 child: Column(
-//                                   crossAxisAlignment: CrossAxisAlignment.start,
-//                                   children: [
-//                                     Row(
-//                                       mainAxisAlignment:
-//                                       MainAxisAlignment.spaceBetween,
-//                                       children: [
-//                                         Row(
-//                                           children: [
-//                                             Container(
-//                                               decoration: BoxDecoration(
-//                                                   color: Colors.yellow.shade100,
-//                                                   borderRadius:
-//                                                   BorderRadius.circular(25)),
-//                                               child: const Padding(
-//                                                 padding: EdgeInsets.all(13),
-//                                                 child: Icon(
-//                                                   Icons.thumb_up,
-//                                                   color: Colors.yellow,
-//                                                 ),
-//                                               ),
-//                                             ),
-//                                             const SizedBox(width: 7),
-//                                             Column(
-//                                               crossAxisAlignment:
-//                                               CrossAxisAlignment.start,
-//                                               children: [
-//                                                 InkWell(
-//                                                   onTap:(){},
-//                                                   splashColor: Colors.yellow,
-//                                                   child: const Text(
-//                                                     'Gold',
-//                                                     style: TextStyle(
-//                                                         fontSize: 20,
-//                                                         color: Colors.yellow,
-//                                                         fontWeight: FontWeight.bold),
-//                                                   ),
-//                                                 ),
-//                                                 const Row(
-//                                                   children: [
-//                                                     Text(
-//                                                       '11:050 oz',
-//                                                       style: TextStyle(
-//                                                           fontSize: 12,
-//                                                           color: Colors.grey),
-//                                                     ),
-//                                                   ],
-//                                                 )
-//                                               ],
-//                                             ),
-//                                           ],
-//                                         ),
-//                                         const Column(
-//                                           crossAxisAlignment: CrossAxisAlignment.end,
-//                                           children: [
-//                                             Row(
-//                                               children: [
-//                                                 Icon(
-//                                                   Icons.attach_money,
-//                                                   size: 25,
-//                                                 ),
-//                                                 Text(
-//                                                   '22,265.64',
-//                                                   style: TextStyle(
-//                                                       fontWeight: FontWeight.bold,
-//                                                       fontSize: 20),
-//                                                 ),
-//                                               ],
-//                                             ),
-//                                             Row(
-//                                               children: [
-//                                                 Text(
-//                                                   '0.97',
-//                                                   style: TextStyle(
-//                                                       fontSize: 12,
-//                                                       color: Colors.grey),
-//                                                 ),
-//                                                 Icon(
-//                                                   Icons.percent,
-//                                                   size: 14,
-//                                                   color: Colors.grey,
-//                                                 )
-//                                               ],
-//                                             ),
-//                                           ],
-//                                         ),
-//                                       ],
-//                                     ),
-//                                     const SizedBox(height: 2),
-//                                     const Divider(
-//                                       color: Colors.grey,
-//                                       thickness: 0.6,
-//                                     ),
-//                                     const SizedBox(height: 2),
-//                                     const Row(
-//                                       mainAxisAlignment:
-//                                       MainAxisAlignment.spaceBetween,
-//                                       children: [
-//                                         Text(
-//                                           'Cash Balance',
-//                                           style: TextStyle(
-//                                             fontSize: 14,
-//                                             color: Colors.grey,
-//                                           ),
-//                                         ),
-//                                         Text(
-//                                           'Change',
-//                                           style: TextStyle(
-//                                             fontSize: 14,
-//                                             color: Colors.grey,
-//                                           ),
-//                                         ),
-//                                       ],
-//                                     ),
-//                                     const SizedBox(height: 4),
-//                                     const Row(
-//                                       mainAxisAlignment:
-//                                       MainAxisAlignment.spaceBetween,
-//                                       children: [
-//                                         Row(
-//                                           children: [
-//                                             Icon(
-//                                               Icons.attach_money,
-//                                               size: 24,
-//                                             ),
-//                                             Text(
-//                                               '1,999.00',
-//                                               style: TextStyle(fontSize: 20),
-//                                             ),
-//                                           ],
-//                                         ),
-//                                         Text(
-//                                           '-0.4 %',
-//                                           style: TextStyle(
-//                                             fontSize: 20,
-//                                             color: Colors.brown,
-//                                           ),
-//                                         ),
-//                                       ],
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ),
-//                             ),
-//                             const SizedBox(height: 20),
-//
-//                             // Container(
-//                             //   height: 150,
-//                             //   width: double.infinity,
-//                             //   decoration: BoxDecoration(
-//                             //       color: Colors.white,
-//                             //       borderRadius: BorderRadius.circular(6)),
-//                             //   child: Padding(
-//                             //     padding: const EdgeInsets.only(
-//                             //         top: 15, left: 15, right: 15),
-//                             //     child: Column(
-//                             //       crossAxisAlignment: CrossAxisAlignment.start,
-//                             //       children: [
-//                             //         Row(
-//                             //           mainAxisAlignment:
-//                             //               MainAxisAlignment.spaceBetween,
-//                             //           children: [
-//                             //             Row(
-//                             //               children: [
-//                             //                 Container(
-//                             //                   decoration: BoxDecoration(
-//                             //                       color: Colors.grey.shade300,
-//                             //                       borderRadius:
-//                             //                           BorderRadius.circular(25)),
-//                             //                   child: const Padding(
-//                             //                     padding: EdgeInsets.all(13),
-//                             //                     child: Icon(
-//                             //                       Icons.thumb_up,
-//                             //                       color: Colors.black54,
-//                             //                     ),
-//                             //                   ),
-//                             //                 ),
-//                             //                 const SizedBox(width: 7),
-//                             //                  Column(
-//                             //                   crossAxisAlignment:
-//                             //                       CrossAxisAlignment.start,
-//                             //                   children: [
-//                             //                     InkWell(
-//                             //                       onTap:(){},
-//                             //                       splashColor: Colors.grey,
-//                             //                       child: const Text(
-//                             //                         'Silver',
-//                             //                         style: TextStyle(
-//                             //                             fontSize: 20,
-//                             //                             color: Colors.black54,
-//                             //                             fontWeight: FontWeight.bold),
-//                             //                       ),
-//                             //                     ),
-//                             //                     const Row(
-//                             //                       children: [
-//                             //                         Text(
-//                             //                           '0.000 oz',
-//                             //                           style: TextStyle(
-//                             //                               fontSize: 12,
-//                             //                               color: Colors.grey),
-//                             //                         ),
-//                             //                       ],
-//                             //                     )
-//                             //                   ],
-//                             //                 ),
-//                             //               ],
-//                             //             ),
-//                             //             const Column(
-//                             //               crossAxisAlignment: CrossAxisAlignment.end,
-//                             //               children: [
-//                             //                 Row(
-//                             //                   children: [
-//                             //                     Icon(
-//                             //                       Icons.attach_money,
-//                             //                       size: 25,
-//                             //                     ),
-//                             //                     Text(
-//                             //                       '22,265.64',
-//                             //                       style: TextStyle(
-//                             //                           fontWeight: FontWeight.bold,
-//                             //                           fontSize: 20),
-//                             //                     ),
-//                             //                   ],
-//                             //                 ),
-//                             //                 Row(
-//                             //                   children: [
-//                             //                     Text(
-//                             //                       '0.97',
-//                             //                       style: TextStyle(
-//                             //                           fontSize: 12,
-//                             //                           color: Colors.grey),
-//                             //                     ),
-//                             //                     Icon(
-//                             //                       Icons.percent,
-//                             //                       size: 14,
-//                             //                       color: Colors.grey,
-//                             //                     )
-//                             //                   ],
-//                             //                 ),
-//                             //               ],
-//                             //             ),
-//                             //           ],
-//                             //         ),
-//                             //         const SizedBox(height: 2),
-//                             //         const Divider(
-//                             //           color: Colors.grey,
-//                             //           thickness: 0.6,
-//                             //         ),
-//                             //         const SizedBox(height: 2),
-//                             //         const Row(
-//                             //           mainAxisAlignment:
-//                             //               MainAxisAlignment.spaceBetween,
-//                             //           children: [
-//                             //             Text(
-//                             //               'Cash Balance',
-//                             //               style: TextStyle(
-//                             //                 fontSize: 14,
-//                             //                 color: Colors.grey,
-//                             //               ),
-//                             //             ),
-//                             //             Text(
-//                             //               'Change',
-//                             //               style: TextStyle(
-//                             //                 fontSize: 14,
-//                             //                 color: Colors.grey,
-//                             //               ),
-//                             //             ),
-//                             //           ],
-//                             //         ),
-//                             //         const SizedBox(height: 4),
-//                             //         const Row(
-//                             //           mainAxisAlignment:
-//                             //               MainAxisAlignment.spaceBetween,
-//                             //           children: [
-//                             //             Row(
-//                             //               children: [
-//                             //                 Icon(
-//                             //                   Icons.attach_money,
-//                             //                   size: 24,
-//                             //                 ),
-//                             //                 Text(
-//                             //                   '1,999.00',
-//                             //                   style: TextStyle(fontSize: 20),
-//                             //                 ),
-//                             //               ],
-//                             //             ),
-//                             //             Text(
-//                             //               '-0.4 %',
-//                             //               style: TextStyle(
-//                             //                 fontSize: 20,
-//                             //                 color: Colors.brown,
-//                             //               ),
-//                             //             ),
-//                             //           ],
-//                             //         ),
-//                             //       ],
-//                             //     ),
-//                             //   ),
-//                             // ),
-//                             // const SizedBox(height: 20),
-//                             // Container(
-//                             //   height: 150,
-//                             //   width: double.infinity,
-//                             //   decoration: BoxDecoration(
-//                             //       color: Colors.white,
-//                             //       borderRadius: BorderRadius.circular(6)),
-//                             //   child: Padding(
-//                             //     padding: const EdgeInsets.only(
-//                             //         top: 15, left: 15, right: 15),
-//                             //     child: Column(
-//                             //       crossAxisAlignment: CrossAxisAlignment.start,
-//                             //       children: [
-//                             //         Row(
-//                             //           mainAxisAlignment:
-//                             //               MainAxisAlignment.spaceBetween,
-//                             //           children: [
-//                             //             Row(
-//                             //               children: [
-//                             //                 Container(
-//                             //                   decoration: BoxDecoration(
-//                             //                       color: Colors.purple.shade100,
-//                             //                       borderRadius:
-//                             //                           BorderRadius.circular(25)),
-//                             //                   child: const Padding(
-//                             //                     padding: EdgeInsets.all(13),
-//                             //                     child: Icon(
-//                             //                       Icons.thumb_up,
-//                             //                       color: Colors.purple,
-//                             //                     ),
-//                             //                   ),
-//                             //                 ),
-//                             //                 const SizedBox(width: 7),
-//                             //                  Column(
-//                             //                   crossAxisAlignment:
-//                             //                       CrossAxisAlignment.start,
-//                             //                   children: [
-//                             //                     InkWell(
-//                             //                       onTap:(){},
-//                             //                       splashColor: Colors.purple,
-//                             //                       child: const Text(
-//                             //                         'Platinum',
-//                             //                         style: TextStyle(
-//                             //                             fontSize: 20,
-//                             //                             color: Colors.purple,
-//                             //                             fontWeight: FontWeight.bold),
-//                             //                       ),
-//                             //                     ),
-//                             //                     const Row(
-//                             //                       children: [
-//                             //                         Text(
-//                             //                           '11:050 oz',
-//                             //                           style: TextStyle(
-//                             //                               fontSize: 12,
-//                             //                               color: Colors.grey),
-//                             //                         ),
-//                             //                       ],
-//                             //                     )
-//                             //                   ],
-//                             //                 ),
-//                             //               ],
-//                             //             ),
-//                             //             const Column(
-//                             //               crossAxisAlignment: CrossAxisAlignment.end,
-//                             //               children: [
-//                             //                 Row(
-//                             //                   children: [
-//                             //                     Icon(
-//                             //                       Icons.attach_money,
-//                             //                       size: 25,
-//                             //                     ),
-//                             //                     Text(
-//                             //                       '22,265.64',
-//                             //                       style: TextStyle(
-//                             //                           fontWeight: FontWeight.bold,
-//                             //                           fontSize: 20),
-//                             //                     ),
-//                             //                   ],
-//                             //                 ),
-//                             //                 Row(
-//                             //                   children: [
-//                             //                     Text(
-//                             //                       '0.97',
-//                             //                       style: TextStyle(
-//                             //                           fontSize: 12,
-//                             //                           color: Colors.grey),
-//                             //                     ),
-//                             //                     Icon(
-//                             //                       Icons.percent,
-//                             //                       size: 14,
-//                             //                       color: Colors.grey,
-//                             //                     )
-//                             //                   ],
-//                             //                 ),
-//                             //               ],
-//                             //             ),
-//                             //           ],
-//                             //         ),
-//                             //         const SizedBox(height: 2),
-//                             //         const Divider(
-//                             //           color: Colors.grey,
-//                             //           thickness: 0.6,
-//                             //         ),
-//                             //         const SizedBox(height: 2),
-//                             //         const Row(
-//                             //           mainAxisAlignment:
-//                             //               MainAxisAlignment.spaceBetween,
-//                             //           children: [
-//                             //             Text(
-//                             //               'Cash Balance',
-//                             //               style: TextStyle(
-//                             //                 fontSize: 14,
-//                             //                 color: Colors.grey,
-//                             //               ),
-//                             //             ),
-//                             //             Text(
-//                             //               'Change',
-//                             //               style: TextStyle(
-//                             //                 fontSize: 14,
-//                             //                 color: Colors.grey,
-//                             //               ),
-//                             //             ),
-//                             //           ],
-//                             //         ),
-//                             //         const SizedBox(height: 4),
-//                             //         const Row(
-//                             //           mainAxisAlignment:
-//                             //               MainAxisAlignment.spaceBetween,
-//                             //           children: [
-//                             //             Row(
-//                             //               children: [
-//                             //                 Icon(
-//                             //                   Icons.attach_money,
-//                             //                   size: 24,
-//                             //                 ),
-//                             //                 Text(
-//                             //                   '1,999.00',
-//                             //                   style: TextStyle(fontSize: 20),
-//                             //                 ),
-//                             //               ],
-//                             //             ),
-//                             //             Text(
-//                             //               '-0.4 %',
-//                             //               style: TextStyle(
-//                             //                 fontSize: 20,
-//                             //                 color: Colors.brown,
-//                             //               ),
-//                             //             ),
-//                             //           ],
-//                             //         ),
-//                             //       ],
-//                             //     ),
-//                             //   ),
-//                             // ),
-//                           ],
-//                         ),
-//                       );
-//                     }
-//                 )
-//               ],
-//             ),
-//             const Spacer(),
-//             const Padding(
-//               padding: EdgeInsets.only(left: 18),
-//               child: Text(
-//                 'Do More With OneGold',
-//                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
 //               ),
-//             )
-//           ],
-//         ),
+//             ),
+//         ],
 //       ),
 //     );
 //   }
+//
+// // Future<void> getLocationUpdates() async {
+// //   bool _serviceEnabled;
+// //   PermissionStatus _permissionGranted;
+// //
+// //   _serviceEnabled = await _locationController.serviceEnabled();
+// //   if (!_serviceEnabled) {
+// //     _serviceEnabled = await _locationController.requestService();
+// //   }
+// //   if (!_serviceEnabled) {
+// //     return;
+// //   }
+// //
+// //   _permissionGranted = await _locationController.hasPermission();
+// //   if (_permissionGranted == PermissionStatus.denied) {
+// //     _permissionGranted = await _locationController.requestPermission();
+// //     if (_permissionGranted != PermissionStatus.granted) {
+// //       return;
+// //     }
+// //   }
+// //   _locationController.onLocationChanged
+// //       .listen((LocationData currentLocation) {
+// //     if (currentLocation.latitude != null &&
+// //         currentLocation.longitude != null) {
+// //       setState(() {
+// //         _currentP =
+// //             LatLng(currentLocation.latitude!, currentLocation.longitude!);
+// //         print(_currentP);
+// //         getPolylinePointer(); // Update polyline when location changes
+// //       });
+// //     }
+// //   });
+// // }
+//
+// //   Future<void> getPolylinePointer() async {
+// //     List<LatLng> polylineCoordinates = [];
+// //     PolylinePoints polylinePoints = PolylinePoints();
+// //     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+// //       GOOGLE_MAPS_API_KEY,
+// //       PointLatLng(_startLocation.latitude, _startLocation.longitude),
+// //       PointLatLng(_endLocation.latitude, _endLocation.longitude),
+// //       travelMode: TravelMode.driving,
+// //     );
+// //     if (result.points.isNotEmpty) {
+// //       result.points.forEach((PointLatLng point) {
+// //         polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+// //       });
+// //     } else {
+// //       print(result.errorMessage);
+// //     }
+// //     generatePolylineFromPoints(polylineCoordinates);
+// //   }
+// //
+// //   void generatePolylineFromPoints(List<LatLng> polylineCoordinates) async {
+// //     PolylineId id = const PolylineId("poly");
+// //     Polyline polyline = Polyline(
+// //         polylineId: id,
+// //         color: Colors.black,
+// //         points: polylineCoordinates,
+// //         width: 8);
+// //     setState(() {
+// //       polylines[id] = polyline;
+// //     });
+// //
+// //     // Add polyline from _DRIVING to _start
+// //     List<LatLng> drivingPolylineCoordinates = [_startLocation, _endLocation];
+// //     PolylineId drivingId = const PolylineId("driving_poly");
+// //     Polyline drivingPolyline = Polyline(
+// //         polylineId: drivingId,
+// //         color: Colors.blue,
+// //         points: drivingPolylineCoordinates,
+// //         width: 8);
+// //     setState(() {
+// //       polylines[drivingId] = drivingPolyline;
+// //     });
+// //   }
 // }

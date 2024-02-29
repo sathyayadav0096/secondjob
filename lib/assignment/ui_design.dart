@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/assignment/google_map.dart';
 
 class AssignMentData extends StatefulWidget {
   const AssignMentData({Key? key});
@@ -634,13 +636,47 @@ class _AssignMentDataState extends State<AssignMentData> {
               ],
             ),
             const Spacer(),
-            const Padding(
-              padding: EdgeInsets.only(left: 15),
-              child: Text(
-                'Do More With OneGold',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, bottom: 7),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Do More With OneGold',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.to(MapsApi());
+                    },
+                    child: Container(
+                      height: 35,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.location_searching,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Location',
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -59,7 +59,7 @@ void main() {
           Provider<MapsApi>(create: (context) => MapsApi()),
         ],
         // which page we want to run and see in the out put here we need to specify the class name
-        child: MapsApi(),
+        child: BottomNavigationAssignment(),
       ),
     ),
   );
