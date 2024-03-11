@@ -17,7 +17,7 @@ class _ClmRowState extends State<ClmRow> {
         child: Column(
           children: [
             Container(
-              height: 150,
+              height: 180,
               width: double.infinity,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
