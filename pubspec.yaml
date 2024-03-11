@@ -29,7 +29,7 @@ dev_dependencies:
     sdk: flutter
   dotted_line: ^3.2.2
   image_picker:
-  razorpay_flutter: any
+  razorpay_flutter:
   get_storage: any
 
 

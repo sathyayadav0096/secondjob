@@ -27,7 +27,7 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.5.3' # Update with your desired Flutter version
+          flutter-version: '3.2.3' # Update with your desired Flutter version
 
       - name: Build APK for Android
         run: flutter build apk --release --split-per-abi
