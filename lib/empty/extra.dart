@@ -10,6 +10,6 @@ class Eca extends StatefulWidget {
 class _EcaState extends State<Eca> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(body: Text('Hello'),);
   }
 }
