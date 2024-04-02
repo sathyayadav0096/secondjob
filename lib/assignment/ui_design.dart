@@ -35,8 +35,8 @@ class _AssignMentDataState extends State<AssignMentData> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Row(
-                              children: [
+                             Row(
+                              children: const [
                                 Icon(
                                   Icons.attach_money,
                                   color: Colors.white,
@@ -59,9 +59,9 @@ class _AssignMentDataState extends State<AssignMentData> {
                                   decoration: BoxDecoration(
                                       color: const Color(0xFF083663),
                                       borderRadius: BorderRadius.circular(25)),
-                                  child: const Row(
+                                  child:  Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
+                                    children: const [
                                       Text(
                                         '0.97',
                                         style: TextStyle(
@@ -87,9 +87,9 @@ class _AssignMentDataState extends State<AssignMentData> {
                           ],
                         ),
                         const SizedBox(height: 10),
-                        const Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Account Value',
                               style: TextStyle(
@@ -111,9 +111,9 @@ class _AssignMentDataState extends State<AssignMentData> {
                           color: Colors.white,
                         ),
                         const SizedBox(height: 10),
-                        const Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Cash Balance',
                               style: TextStyle(
@@ -131,11 +131,11 @@ class _AssignMentDataState extends State<AssignMentData> {
                           ],
                         ),
                         const SizedBox(height: 2),
-                        const Row(
+                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.attach_money,
                                   color: Colors.white,
@@ -156,7 +156,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                               ],
                             ),
                             Row(
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.attach_money,
                                   color: Colors.white,
@@ -213,7 +213,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         ),
                                       ),
                                       const SizedBox(width: 7),
-                                      const Column(
+                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -225,7 +225,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text(
                                                 '11:050 oz',
                                                 style: TextStyle(
@@ -238,11 +238,11 @@ class _AssignMentDataState extends State<AssignMentData> {
                                       ),
                                     ],
                                   ),
-                                  const Column(
+                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Row(
-                                        children: [
+                                        children: const [
                                           Icon(
                                             Icons.attach_money,
                                             size: 25,
@@ -256,7 +256,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         ],
                                       ),
                                       Row(
-                                        children: [
+                                        children: const [
                                           Text(
                                             '0.97',
                                             style: TextStyle(
@@ -280,10 +280,10 @@ class _AssignMentDataState extends State<AssignMentData> {
                                 thickness: 0.6,
                               ),
                               const SizedBox(height: 2),
-                              const Row(
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Cash Balance',
                                     style: TextStyle(
@@ -301,12 +301,12 @@ class _AssignMentDataState extends State<AssignMentData> {
                                 ],
                               ),
                               const SizedBox(height: 4),
-                              const Row(
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
-                                    children: [
+                                    children: const [
                                       Icon(
                                         Icons.attach_money,
                                         size: 24,
@@ -363,7 +363,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         ),
                                       ),
                                       const SizedBox(width: 7),
-                                      const Column(
+                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -375,7 +375,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text(
                                                 '0.000 oz',
                                                 style: TextStyle(
@@ -388,11 +388,11 @@ class _AssignMentDataState extends State<AssignMentData> {
                                       ),
                                     ],
                                   ),
-                                  const Column(
+                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Row(
-                                        children: [
+                                        children: const [
                                           Icon(
                                             Icons.attach_money,
                                             size: 25,
@@ -406,7 +406,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         ],
                                       ),
                                       Row(
-                                        children: [
+                                        children: const [
                                           Text(
                                             '0.0',
                                             style: TextStyle(
@@ -430,10 +430,10 @@ class _AssignMentDataState extends State<AssignMentData> {
                                 thickness: 0.6,
                               ),
                               const SizedBox(height: 2),
-                              const Row(
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Metal Price',
                                     style: TextStyle(
@@ -451,12 +451,12 @@ class _AssignMentDataState extends State<AssignMentData> {
                                 ],
                               ),
                               const SizedBox(height: 4),
-                              const Row(
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
-                                    children: [
+                                    children: const [
                                       Icon(
                                         Icons.attach_money,
                                         size: 24,
@@ -513,7 +513,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         ),
                                       ),
                                       const SizedBox(width: 7),
-                                      const Column(
+                                       Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -525,7 +525,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                                 fontWeight: FontWeight.bold),
                                           ),
                                           Row(
-                                            children: [
+                                            children: const [
                                               Text(
                                                 '0.00 oz',
                                                 style: TextStyle(
@@ -538,11 +538,11 @@ class _AssignMentDataState extends State<AssignMentData> {
                                       ),
                                     ],
                                   ),
-                                  const Column(
+                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Row(
-                                        children: [
+                                        children: const [
                                           Icon(
                                             Icons.attach_money,
                                             size: 25,
@@ -556,7 +556,7 @@ class _AssignMentDataState extends State<AssignMentData> {
                                         ],
                                       ),
                                       Row(
-                                        children: [
+                                        children: const [
                                           Text(
                                             '0.0',
                                             style: TextStyle(
@@ -580,10 +580,10 @@ class _AssignMentDataState extends State<AssignMentData> {
                                 thickness: 0.6,
                               ),
                               const SizedBox(height: 2),
-                              const Row(
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Metal Price',
                                     style: TextStyle(
@@ -601,12 +601,12 @@ class _AssignMentDataState extends State<AssignMentData> {
                                 ],
                               ),
                               const SizedBox(height: 4),
-                              const Row(
+                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
-                                    children: [
+                                    children: const [
                                       Icon(
                                         Icons.attach_money,
                                         size: 24,
@@ -655,9 +655,9 @@ class _AssignMentDataState extends State<AssignMentData> {
                       decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(10)),
-                      child: const Row(
+                      child:  Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: const [
                           Icon(
                             Icons.location_searching,
                             size: 20,

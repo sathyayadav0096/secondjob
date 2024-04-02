@@ -105,7 +105,7 @@ class _ResignationState extends State<Resignation> {
                   const SizedBox(
                     width: 15,
                   ),
-                  const Column(
+                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -114,7 +114,7 @@ class _ResignationState extends State<Resignation> {
                             fontSize: 14, fontWeight: FontWeight.bold),
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Text(
                             'to harish.k',
                             style: TextStyle(fontSize: 11, color: Colors.grey),
@@ -130,8 +130,8 @@ class _ResignationState extends State<Resignation> {
                   const SizedBox(
                     width: 12,
                   ),
-                  const Column(
-                    children: [
+                   Column(
+                    children: const [
                       Text('12:30 PM'),
                     ],
                   ),
@@ -164,11 +164,11 @@ class _ResignationState extends State<Resignation> {
                   )
                 ],
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(left: 4, top: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Hi Harish,',
                       style: TextStyle(fontSize: 12),
@@ -245,11 +245,11 @@ class _ResignationState extends State<Resignation> {
                   const SizedBox(
                     width: 15,
                   ),
-                  const Column(
+                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-                        children: [
+                        children: const [
                           Text(
                             'Harish.k@vipany...',
                             style: TextStyle(
@@ -262,7 +262,7 @@ class _ResignationState extends State<Resignation> {
                         ],
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Text(
                             'to deepika.g',
                             style: TextStyle(fontSize: 11, color: Colors.grey),
@@ -304,11 +304,11 @@ class _ResignationState extends State<Resignation> {
                   )
                 ],
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(left: 4, top: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text('Hi Deepika,', style: TextStyle(fontSize: 12)),
                     SizedBox(
                       height: 17,
@@ -383,9 +383,9 @@ class _ResignationState extends State<Resignation> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.black)),
-                    child: const Row(
+                    child:  Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Icon(
                           Icons.forward_outlined,
                           size: 15,
@@ -403,9 +403,9 @@ class _ResignationState extends State<Resignation> {
               Container(
                 height: 38,
                 width: double.infinity,
-                child: const Row(
+                child:  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const [
                     Icon(
                       Icons.mail_outline,
                       size: 25,

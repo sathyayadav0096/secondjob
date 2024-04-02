@@ -10,10 +10,10 @@ class ExtraClass extends StatefulWidget {
 class _ExtraClassState extends State<ExtraClass> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Center(
             child: Text(
               'Testing Provider',

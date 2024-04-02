@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:untitled/Narendra_classes/container.dart';
 import 'package:untitled/firebase/auth_email.dart';
 import 'package:untitled/multi_provider/multi_provider.dart';
 import 'package:untitled/resignation_creating/resignation.dart';
 import 'package:untitled/snackbar_dialogbox_bottomsheet/snackbar_dialogbox_bottomshee.dart';
 import 'package:untitled/sqlite_final/notes_screens.dart';
 import 'package:untitled/tabs_screens/bottom_navigation.dart';
-import 'package:untitled/test.dart';
 import 'package:untitled/validations/validations_getx.dart';
 
 import 'GEETHA_CLASSES/column_row.dart';
 import 'GEETHA_CLASSES/image_padding.dart';
-import 'Narendra_classes/padding_spacer.dart';
-import 'Narendra_classes/row_column.dart';
 
 import 'api_calls/api_call/api_call_1/final_api_follow this.dart';
 import 'api_calls/api_call/api_call_2/api_call.dart';
@@ -63,9 +59,6 @@ void main() {
           Provider<PadImg>(create: (context) => PadImg()),
           Provider<Resignation>(create: (context) => Resignation()),
           Provider<MapsApi>(create: (context) => MapsApi()),
-          Provider<RowColumn>(create: (context) => RowColumn()),
-          Provider<PadSpace>(create: (context) => PadSpace()),
-          Provider<ContScreens>(create: (context) => ContScreens()),
           Provider<GetApiCall>(create: (context) => GetApiCall()),
         ],
         // which page we want to run and see in the out put here we need to specify the class name
